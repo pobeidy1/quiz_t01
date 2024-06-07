@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python String Formatting Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Python String Formatting Quiz</h1>
+        <div class="question">
+            <p>1. Which method would you use to insert values into a string with curly braces `{}`?</p>
+            <input type="radio" name="q1" value="a"> a) %<br>
+            <input type="radio" name="q1" value="b"> b) .format()<br>
+            <input type="radio" name="q1" value="c"> c) f-string<br>
+            <input type="radio" name="q1" value="d"> d) join()<br>
+        </div>
+        <div class="question">
+            <p>2. How do you format a string to include two decimal places?</p>
+            <input type="radio" name="q2" value="a"> a) f"{value:.2f}"<br>
+            <input type="radio" name="q2" value="b"> b) "{:.2}".format(value)<br>
+            <input type="radio" name="q2" value="c"> c) format(value, ".2")<br>
+            <input type="radio" name="q2" value="d"> d) f"{value:2f}"<br>
+        </div>
+        <div class="question">
+            <p>3. What is the output of this code?</p>
+            <pre>
+name = "Alice"
+greeting = f"Hello, {name}!"
+print(greeting)
+            </pre>
+            <input type="radio" name="q3" value="a"> a) Hello, Alice!<br>
+            <input type="radio" name="q3" value="b"> b) Hello, {name}!<br>
+            <input type="radio" name="q3" value="c"> c) Hello, name!<br>
+            <input type="radio" name="q3" value="d"> d) Hello, !<br>
+        </div>
+        <div class="question">
+            <p>4. Fill in the blank to align text to the center within 10 spaces.</p>
+            <pre>text = "Hi"
+formatted_text = f"{text:___^10}"</pre>
+            <input type="radio" name="q4" value="a"> a) 10<br>
+            <input type="radio" name="q4" value="b"> b) ^10<br>
+            <input type="radio" name="q4" value="c"> c) ^^10<br>
+            <input type="radio" name="q4" value="d"> d) *10<br>
+        </div>
+        <div class="question">
+            <p>5. Which of these is not a valid string formatting method in Python?</p>
+            <input type="radio" name="q5" value="a"> a) f-string<br>
+            <input type="radio" name="q5" value="b"> b) .format()<br>
+            <input type="radio" name="q5" value="c"> c) %<br>
+            <input type="radio" name="q5" value="d"> d) .replace()<br>
+        </div>
+        <button onclick="checkAnswers()">Submit</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function checkAnswers() {
+            const answers = ['b', 'a', 'a', 'b', 'd'];
+            let score = 0;
+            for (let i = 1; i <= answers.length; i++) {
+                const question = document.querySelector(`input[name="q${i}"]:checked`);
+                if (question && question.value === answers[i - 1]) {
+                    score++;
+                }
+            }
+            document.getElementById('result').textContent = `You scored ${score} out of ${answers.length}`;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
